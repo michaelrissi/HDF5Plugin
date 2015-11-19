@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 2.8)
 project(hdf5lz4)
 
-find_package(HDF5 COMPONENTS C)
+find_package(HDF5 REQUIRED NO_MODULE)
 
-include_directories(${HDF5_INCLUDE_DIRS})
+include_directories(${HDF5_INCLUDE_DIR})
 
 set(SOURCES
     h5zlz4.c
@@ -18,3 +18,4 @@ add_library(h5lz4 SHARED ${SOURCES})
 if (MSVC)
     target_link_libraries(h5lz4 ws2_32)
 endif()
+install(TARGETS h5lz4 RUNTIME DESTINATION bin)
