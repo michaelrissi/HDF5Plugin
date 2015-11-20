@@ -16,6 +16,6 @@ endif()
 add_library(h5lz4 SHARED ${SOURCES})
 
 if (MSVC)
-    target_link_libraries(h5lz4 ws2_32)
+    target_link_libraries(hdf5lz4 ws2_32)
 endif()
-install(TARGETS h5lz4 RUNTIME DESTINATION bin)
+install(TARGETS hdf5lz4 RUNTIME DESTINATION bin)
