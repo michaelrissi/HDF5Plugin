@@ -13,7 +13,7 @@ if (NOT MSVC)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")
 endif()
 
-add_library(h5lz4 SHARED ${SOURCES})
+add_library(hdf5lz4 SHARED ${SOURCES})
 
 if (MSVC)
     target_link_libraries(hdf5lz4 ws2_32)
