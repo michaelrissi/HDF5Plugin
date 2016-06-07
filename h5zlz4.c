@@ -137,9 +137,10 @@ static size_t lz4_filter(unsigned int flags, size_t cd_nelmts,
       for(size_t block = 0; block < nBlocks; ++block)
 	{
 	  size_t origWritten = block*blockSize;
-	  if(nbytes - origWritten < blockSize) /* the last block may be < blockSize */
-	    blockSize = nbytes - origWritten;
-	  
+	  if (nbytes - origWritten < blockSize) {
+		/* the last block may be < blockSize */
+		blockSize = nbytes - origWritten;
+	  }
 	  uint32_t compBlockSize = LZ4_compress(rpos, roBuf+4, blockSize); /// reserve space for compBlockSize
 	  if(!compBlockSize)
 	    goto error;
